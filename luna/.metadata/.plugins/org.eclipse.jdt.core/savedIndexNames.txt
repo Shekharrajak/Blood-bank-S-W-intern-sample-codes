@@ -1,5 +1,4 @@
-INDEX VERSION 1.127+D:\java\luna\.metadata\.plugins\org.eclipse.jdt.core
-2793905792.index
-2441938283.index
-1587380006.index
-303954218.index
+INDEX VERSION 1.126+D:\java\luna\.metadata\.plugins\org.eclipse.jdt.core
+2264229313.index
+4294223955.index
+1391371773.index

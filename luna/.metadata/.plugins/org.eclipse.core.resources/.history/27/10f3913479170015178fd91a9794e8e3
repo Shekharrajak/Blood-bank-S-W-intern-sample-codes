@@ -1,0 +1,95 @@
+
+
+import java.awt.*;        // Using AWT container and component classes
+import java.awt.event.*;  // Using AWT event classes and listener interfaces
+ 
+// An AWT program inherits from the top-level container java.awt.Frame
+public class blood_bank extends Frame implements ActionListener {
+   private Label lblCount;    // Declare component Label
+   private TextField tfCount; // Declare component TextField
+   private Button btnCount;   // Declare component Button
+   private int count = 0;     // Counter's value
+   
+   
+ 
+   /** Constructor to setup GUI components and event handling */
+   public blood_bank () {
+	   setLayout(new GridLayout(3, 2, 3, 3));
+	  Button  btn1 = new Button("Button 1");
+	      add(btn1);
+	      Button    btn2 = new Button("This is Button 2");
+	      add(btn2);
+	      Button btn3 = new Button("3");
+	      add(btn3);
+	      Button btn4 = new Button("Another Button 4");
+	      add(btn4);
+	      Button btn5 = new Button("Button 5");
+	      add(btn5);
+	      Button  btn6 = new Button("One More Button 6");
+	      add(btn6);
+	      
+	      Container cp = this.getContentPane(); 
+	      cp.setLayout(new FlowLayout());
+	      cp.add(new JLabel("Hello, world!"));
+	      cp.add(new JButton("Button"));
+	 
+	      setTitle("GridLayout Demo"); // "this" Frame sets title
+	      setSize(280, 150);      // "this" Frame sets initial size
+	      setVisible(true);       // "this" Frame shows
+	      
+	   
+	   Label lblInput;                     // Declare an Label instance called lblInput
+	   lblInput = new Label("Enter ID");   // Construct by invoking a constructor via the new operator
+	   add(lblInput);                      // this.add(lblInput) - "this" is typically a subclass of Frame
+	   lblInput.setText("Enter password"); // Modify the Label's text string
+	   lblInput.getText();                 // Retrieve the Label's text string
+	   
+	   
+      setLayout(new FlowLayout());
+         // "super" Frame sets its layout to FlowLayout, which arranges the components
+         //  from left-to-right, and flow to next row from top-to-bottom.
+ 
+      lblCount = new Label("Counter");  // construct Label
+      add(lblCount);                    // "super" Frame adds Label
+ 
+      tfCount = new TextField("0", 10); // construct TextField
+      tfCount.setEditable(false);       // set to read-only
+      add(tfCount);                     // "super" Frame adds tfCount
+ 
+      btnCount = new Button("Count");   // construct Button
+      add(btnCount);                    // "super" Frame adds Button
+ 
+      btnCount.addActionListener(this);
+         // Clicking Button source fires ActionEvent
+         // btnCount registers this instance as ActionEvent listener
+ 
+      setTitle("AWT Counter");  // "super" Frame sets title
+      setSize(250, 100);        // "super" Frame sets initial window size
+ 
+      // System.out.println(this);
+      // System.out.println(lblCount);
+      // System.out.println(tfCount);
+      // System.out.println(btnCount);
+ 
+      setVisible(true);         // "super" Frame shows
+ 
+      // System.out.println(this);
+      // System.out.println(lblCount);
+      // System.out.println(tfCount);
+      // System.out.println(btnCount);
+   }
+ 
+   /** The entry main() method */
+   public static void main(String[] args) {
+      // Invoke the constructor to setup the GUI, by allocating an instance
+      blood_bank app = new blood_bank();
+   }
+ 
+   /** ActionEvent handler - Called back upon button-click. */
+   @Override
+   public void actionPerformed(ActionEvent evt) {
+      ++count; // increase the counter value
+      // Display the counter value on the TextField tfCount
+      //tfCount.setText(count + ""); // convert int to String
+   }
+}
