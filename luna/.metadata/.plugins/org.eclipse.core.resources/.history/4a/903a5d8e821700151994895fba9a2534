@@ -1,0 +1,86 @@
+// SliderDemo Class
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+
+public class SliderDemo extends JFrame {
+   private JSlider diameter;
+   private OvalPanel myPanel;
+
+   public SliderDemo() 
+   {
+      super( "Slider Demo" );
+
+      myPanel = new OvalPanel();
+      myPanel.setBackground( Color.yellow );
+
+      diameter = new JSlider( SwingConstants.HORIZONTAL,
+                              0, 200, 10 );
+      diameter.setMajorTickSpacing( 10 );
+      diameter.setPaintTicks( true );
+      diameter.addChangeListener(
+         new ChangeListener() {
+            public void stateChanged( ChangeEvent e )
+            {
+               myPanel.setDiameter( diameter.getValue() );
+            }
+         }
+      );
+
+      Container c = getContentPane();
+      c.add( diameter, BorderLayout.SOUTH );
+      c.add( myPanel, BorderLayout.CENTER );
+
+      setSize( 220, 270 );
+      show();
+   }
+
+   public static void main( String args[] )
+   {
+      SliderDemo app = new SliderDemo();
+
+      app.addWindowListener(
+         new WindowAdapter() {
+            public void windowClosing( WindowEvent e )
+            {
+               System.exit( 0 );
+            }
+         }
+      );
+   }
+}
+
+//  OvalPanel Class
+
+import java.awt.*;
+import javax.swing.*;
+
+public class OvalPanel extends JPanel {
+   private int diameter = 10;
+
+   public void paintComponent( Graphics g )
+   {
+      super.paintComponent( g );
+      g.fillOval( 10, 10, diameter, diameter );
+   }
+
+   public void setDiameter( int d )
+   {
+      diameter = ( d >= 0 ? d : 10 );  // default diameter 10
+      repaint();
+   }
+
+   // the following methods are used by layout managers
+   public Dimension getPreferredSize()
+   {
+      return new Dimension( 200, 200 );
+   }
+
+   public Dimension getMinimumSize()
+   {
+      return getPreferredSize();
+   }
+}
