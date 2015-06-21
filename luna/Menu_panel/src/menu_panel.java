@@ -74,7 +74,7 @@ public class menu_panel extends JFrame {
          }
       );
       infoMenu.add( driverItem );
-      
+      //vehicle info
       JMenuItem vehicleItem = new JMenuItem( "Vehicle" );
       vehicleItem.setMnemonic( 'D' );
       vehicleItem.addActionListener(
@@ -88,7 +88,7 @@ public class menu_panel extends JFrame {
          }
       );
       infoMenu.add( vehicleItem );
-      
+      //stored blood info
       JMenuItem storedItem = new JMenuItem( "Stored Blood" );
       storedItem.setMnemonic( 'D' );
       storedItem.addActionListener(
@@ -174,16 +174,19 @@ public class menu_panel extends JFrame {
       getContentPane().setBackground( Color.cyan );
       getContentPane().add( display, BorderLayout.CENTER );
 
-      setSize( 2000, 1024 );
+      setSize( 1400, 724 );
       
-      //look and feel 
+      //look and feel section
       
       JPanel northPanel = new JPanel();
-      northPanel.setLayout( new GridLayout( 3, 1, 0, 5 ) );
+      northPanel.setLayout( new GridLayout( 3, 5, 5, 0 ) );
+      
       label = new JLabel( "This is a Metal look-and-feel", SwingConstants.CENTER );
       northPanel.add( label );
-      button = new JButton( "JButton" );
+      button = new JButton( "Demo Button" );
+      button.setSize(10,10);
       northPanel.add( button );
+      
       comboBox = new JComboBox( strings );
       northPanel.add( comboBox );
      
