@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class applets_ui extends Applet implements ActionListener {
 	TextField firstNum, secondNum, resultNum; 
 	public applets_ui() { 
-		setLayout(new GridLayout(10, 2, 10, 15));
+		setLayout(new GridLayout(3, 2, 10, 15));
 		setBackground(Color.cyan);
 		firstNum = new TextField(15); 
 		secondNum = new TextField(15);
