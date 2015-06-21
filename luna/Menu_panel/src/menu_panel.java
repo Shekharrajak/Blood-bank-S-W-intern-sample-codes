@@ -11,10 +11,19 @@ public class menu_panel extends JFrame {
    private JLabel display;
    private ButtonGroup fontGroup, colorGroup;
    private int style;
+   
+   private String strings[] = { "Metal", "Motif", "Windows" };
+   private UIManager.LookAndFeelInfo looks[];
+   private JRadioButton radio[];
+   private ButtonGroup group;
+   private JButton button;
+   private JLabel label;
+   private JComboBox comboBox;
 
    public menu_panel()
    {
-      super( "Using JMenus" );     
+      super( "---- Vehicle module Blood Bank ----" );   
+      Container c = getContentPane();
 
       JMenuBar bar = new JMenuBar();  // create menubar
       setJMenuBar( bar );  // set the menubar for the JFrame
@@ -48,6 +57,53 @@ public class menu_panel extends JFrame {
       );
       fileMenu.add( exitItem );
       bar.add( fileMenu );    // add File menu
+      
+      //Driver info 
+      JMenu infoMenu = new JMenu( "Informations" );
+      fileMenu.setMnemonic( 'I' );
+      JMenuItem driverItem = new JMenuItem( "Driver" );
+      driverItem.setMnemonic( 'D' );
+      driverItem.addActionListener(
+         new ActionListener() {
+            public void actionPerformed( ActionEvent e )
+            {
+               JOptionPane.showMessageDialog( menu_panel.this,
+                  "This contains\n information of",
+                  "Drvier", JOptionPane.PLAIN_MESSAGE );
+            }
+         }
+      );
+      infoMenu.add( driverItem );
+      
+      JMenuItem vehicleItem = new JMenuItem( "Vehicle" );
+      vehicleItem.setMnemonic( 'D' );
+      vehicleItem.addActionListener(
+         new ActionListener() {
+            public void actionPerformed( ActionEvent e )
+            {
+               JOptionPane.showMessageDialog( menu_panel.this,
+                  "This contains\n information of",
+                  "Vehicle", JOptionPane.PLAIN_MESSAGE );
+            }
+         }
+      );
+      infoMenu.add( vehicleItem );
+      
+      JMenuItem storedItem = new JMenuItem( "Stored Blood" );
+      storedItem.setMnemonic( 'D' );
+      storedItem.addActionListener(
+         new ActionListener() {
+            public void actionPerformed( ActionEvent e )
+            {
+               JOptionPane.showMessageDialog( menu_panel.this,
+                  "This contains\n information of",
+                  "Blood bank", JOptionPane.PLAIN_MESSAGE );
+            }
+         }
+      );
+      infoMenu.add( storedItem );
+      bar.add(infoMenu);
+      
 
       // create the Format menu, its submenus and menu items
       JMenu formatMenu = new JMenu( "Format" );  
@@ -106,6 +162,8 @@ public class menu_panel extends JFrame {
 
       formatMenu.add( fontMenu );
       bar.add( formatMenu );  // add Format menu
+      
+     // c.add(bar);
      
       display = new JLabel(
          "Sample Text", SwingConstants.CENTER );
@@ -116,9 +174,67 @@ public class menu_panel extends JFrame {
       getContentPane().setBackground( Color.cyan );
       getContentPane().add( display, BorderLayout.CENTER );
 
-      setSize( 500, 200 );
+      setSize( 2000, 1024 );
+      
+      //look and feel 
+      
+      JPanel northPanel = new JPanel();
+      northPanel.setLayout( new GridLayout( 3, 1, 0, 5 ) );
+      label = new JLabel( "This is a Metal look-and-feel", SwingConstants.CENTER );
+      northPanel.add( label );
+      button = new JButton( "JButton" );
+      northPanel.add( button );
+      comboBox = new JComboBox( strings );
+      northPanel.add( comboBox );
+     
+      c.add( northPanel, BorderLayout.NORTH );
+      
+      JPanel southPanel = new JPanel();
+      radio = new JRadioButton[ strings.length ];
+      group = new ButtonGroup();
+      ItemHandler handler = new ItemHandler();
+      southPanel.setLayout(
+         new GridLayout( 1, radio.length ) );
+
+      for ( int i = 0; i < radio.length; i++ ) {
+         radio[ i ] = new JRadioButton( strings[ i ] );
+        
+         group.add( radio[ i ] );
+         southPanel.add( radio[ i ] );
+      }
+
+      c.add( southPanel, BorderLayout.SOUTH );
+
+      // get the installed look-and-feel information
+      looks = UIManager.getInstalledLookAndFeels();
+      
+      radio[ 0 ].setSelected( true );
       show();
    }
+   
+   private void changeTheLookAndFeel( int value )
+   {
+      try {
+         UIManager.setLookAndFeel( looks[ value ].getClassName() );
+         SwingUtilities.updateComponentTreeUI( this );
+      }
+      catch ( Exception e ) {
+         e.printStackTrace();
+      }
+   }
+
+   private class ItemHandlerLook implements ItemListener {
+	      public void itemStateChanged( ItemEvent e )
+	      {
+	         for ( int i = 0; i < radio.length; i++ )
+	            if ( radio[ i ].isSelected() ) {
+	               label.setText( "This is a " +
+	                  strings[ i ] + " look-and-feel" );
+	               comboBox.setSelectedIndex( i );
+	               changeTheLookAndFeel( i );
+	            }
+	      }
+}
 
    public static void main( String args[] )
    {
