@@ -265,7 +265,7 @@ btnNewButton.addActionListener(new ActionListener() {
  public void actionPerformed(ActionEvent arg0) {
   if (rdbtnNewRadioButton.isSelected()) {
    String id = textField_6.getText();
-   //String[][] fields = conn.Search("id", id, "books");
+   //String[][] fields = conn.Search("id", id, "drivers");
    String[] textfields = new String[6];
    textfields[0] = textField.getText();
    textfields[1] = textField_1.getText();
@@ -285,7 +285,7 @@ btnNewButton.addActionListener(new ActionListener() {
      textfields[3], textfields[4], textfields[5]);
   } else if (rdbtnNewRadioButton_1.isSelected()) {
    String name = textField_7.getText();
-   String[][] fields = conn.Search("name", name, "books");
+   String[][] fields = conn.Search("name", name, "drivers");
    String[] textfields = new String[6];
    textfields[0] = textField.getText();
    textfields[1] = textField_1.getText();

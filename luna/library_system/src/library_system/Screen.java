@@ -48,7 +48,7 @@ public abstract class Screen extends JFrame {
  protected JMenuBar menuBar;
 
  protected JMenu screenMenu;
- protected JMenuItem bookItem, visitorItem, borrowerItem, warningsItem;
+ protected JMenuItem driverItem, vehicleItem, blood_infoItem, warningsItem;
 
  protected JMenu fileMenu;
  protected JMenuItem aboutItem, exitItem;
@@ -145,39 +145,39 @@ public abstract class Screen extends JFrame {
   * 
   */
  private void Action() {
-  bookItem.addActionListener(new ActionListener() {
+  driverItem.addActionListener(new ActionListener() {
 
    public void actionPerformed(ActionEvent event) {
 
     if (head != "Book") {
 
      dispose();
-     Class.books();
+     Class.drivers();
 
     }
    }
   });
 
-  visitorItem.addActionListener(new ActionListener() {
+  vehicleItem.addActionListener(new ActionListener() {
 
    public void actionPerformed(ActionEvent event) {
 
-    if (head != "Visitors") {
+    if (head != "Vehicle") {
      dispose();
 
-     Class.visitors();
+     Class.vehicles();
     }
    }
   });
 
-  borrowerItem.addActionListener(new ActionListener() {
+  blood_infoItem.addActionListener(new ActionListener() {
 
    public void actionPerformed(ActionEvent event) {
 
-    if (head != "Borrowers") {
+    if (head != "Blood_Info") {
      dispose();
 
-     Class.borrowers();
+     Class.blood_info();
     }
    }
   });
@@ -220,21 +220,21 @@ public abstract class Screen extends JFrame {
    String[] additems = new String[6];
 
    public void actionPerformed(ActionEvent arg0) {
-    if (head == "Books") {
+    if (head == "Driver") {
      for (int i = 0; i < str.length; i++) {
       additems[i] = textFields[i].getText();
      }
-     conn.AddBook(additems[1], additems[2], additems[3],
+     conn.AddDriver(additems[1], additems[2], additems[3],
        additems[4], additems[5]);
 
-     table(conn.BooksView());
+     table(conn.DriverView());
      for (int j = 0; j < str.length; j++) {
       textFields[j].setText("");
 
      }
-    } else if (head == "Borrowers") {
+    } else if (head == "Blood_Info") {
 
-     conn.AddBorrower(textFields[1].getText(),
+     conn.AddBlood_Info(textFields[1].getText(),
        textFields[2].getText(), textFields[3].getText(),
        textFields[4].getText(), textFields[5].getText(),
        textFields[6].getText(), textFields[8].getText(),
@@ -245,12 +245,12 @@ public abstract class Screen extends JFrame {
 
      }
 
-    } else if (head == "Visitors") {
+    } else if (head == "Vehicle") {
 
-     conn.Addvisitor(textFields[1].getText(),
+     conn.Addvehicle(textFields[1].getText(),
        textFields[2].getText(), textFields[3].getText(),
        textFields[4].getText());
-     table(conn.VisitorsView());
+     table(conn.VehicleView());
      for (int j = 0; j < str.length; j++) {
       textFields[j].setText("");
 
@@ -282,12 +282,12 @@ public abstract class Screen extends JFrame {
    @Override
    public void actionPerformed(ActionEvent arg0) {
 
-    if (head.equalsIgnoreCase("books")) {
-     table(conn.BooksView());
-    } else if (head.equalsIgnoreCase("Borrowers")) {
+    if (head.equalsIgnoreCase("drivers")) {
+     table(conn.DriverView());
+    } else if (head.equalsIgnoreCase("Blood_Info")) {
      table(conn.Borrow());
-    } else if (head.equalsIgnoreCase("Visitors")) {
-     table(conn.VisitorsView());
+    } else if (head.equalsIgnoreCase("Vehicle")) {
+     table(conn.VehicleView());
     }
 
    }
@@ -300,7 +300,7 @@ public abstract class Screen extends JFrame {
       try {
        Delete frame = new Delete(head);
        frame.setVisible(true);
-        Class.getBook().table(conn.BooksView());
+        Class.getDriver().table(conn.DriverView());
 
       } catch (Exception e) {
        e.printStackTrace();
@@ -308,7 +308,7 @@ public abstract class Screen extends JFrame {
      }
     });
 
-    Class.getBook().table(conn.BooksView());
+    Class.getDriver().table(conn.DriverView());
    }
 
   });
@@ -318,7 +318,7 @@ public abstract class Screen extends JFrame {
     String key = comboBox.getSelectedItem().toString();
     String value = searchField.getText();
 
-    /* Books b=new Books(); */
+    /* Driver b=new Driver(); */
      SearchResults search = new SearchResults(key, value, head, str,
       str.length);
     searchField.setText(null);
@@ -349,14 +349,14 @@ public abstract class Screen extends JFrame {
   * public void actionPerformed(ActionEvent event) {
   * 
   * 
-  * if (event.getSource() == bookItem) { if (head != "Borrowers") {
+  * if (event.getSource() == driverItem) { if (head != "Blood_Info") {
   * dispose(); Class.borrowers(); } }
   * 
-  * if (event.getSource() == visitorItem) { if (head != "Visitors") {
+  * if (event.getSource() == vehicleItem) { if (head != "Vehicle") {
   * 
-  * dispose(); Class.visitors(); } }
+  * dispose(); Class.vehicles(); } }
   * 
-  * if (event.getSource() == warningsItem) { if (head != "Visitors") {
+  * if (event.getSource() == warningsItem) { if (head != "Vehicle") {
   * 
   * dispose(); Class.warnings(); } }
   * 
@@ -416,12 +416,12 @@ public abstract class Screen extends JFrame {
   screenMenu = new JMenu("Choose Screen");
   screenMenu.setMnemonic('C');
 
-  bookItem = new JMenuItem("Book");
-  bookItem.setMnemonic('B');
-  visitorItem = new JMenuItem("Visitor");
-  visitorItem.setMnemonic('V');
-  borrowerItem = new JMenuItem("Borrower");
-  borrowerItem.setMnemonic('E');
+  driverItem = new JMenuItem("Driver");
+  driverItem.setMnemonic('B');
+  vehicleItem = new JMenuItem("Vehicle");
+  vehicleItem.setMnemonic('V');
+  blood_infoItem = new JMenuItem("Blood_Info");
+  blood_infoItem.setMnemonic('E');
   warningsItem = new JMenuItem("Warnings");
   warningsItem.setMnemonic('W');
 
@@ -482,7 +482,7 @@ comboBox.setModel(comboBoxModel);
   panel2.setLayout(null);
 
   String[] k = str;
-  String[][] l = conn.BooksView();
+  String[][] l = conn.DriverView();
    table( l);
  }
 
@@ -511,9 +511,9 @@ comboBox.setModel(comboBoxModel);
   */
  public void Add() {
   menuBar.add(screenMenu);
-  screenMenu.add(bookItem);
-  screenMenu.add(visitorItem);
-  screenMenu.add(borrowerItem);
+  screenMenu.add(driverItem);
+  screenMenu.add(vehicleItem);
+  screenMenu.add(blood_infoItem);
   screenMenu.add(warningsItem);
 
   menuBar.add(fileMenu);

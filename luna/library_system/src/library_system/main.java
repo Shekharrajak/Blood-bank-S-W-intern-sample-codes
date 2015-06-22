@@ -5,7 +5,7 @@ package library_system;
  * 
  * fcis Package
  *
- * Purpose: A Library management system that handles the library books, borrowers, visitors, warnings . 
+ * Purpose: A Library management system that handles the library books, borrowers, vehicles, warnings . 
  * 
  * this class has the main method, makes an object from another class that passes us from a screen to screen using buttons
  *

@@ -12,33 +12,33 @@ import javax.swing.JOptionPane;
 
 public class Class {
 
- private static Books book;
+ private static Driver driver;
 
- public static Books getBook() {
-  return book;
+ public static Driver getDriver() {
+  return driver;
  }
 
- public static void setBook(Books book) {
-  Class.book = book;
+ public static void setDriver(Driver driver) {
+  Class.driver = driver;
  }
 
- private static Visitors visitor;
- private static Borrowers borrower;
+ private static Vehicle vehicle;
+ private static Blood_Info blood_info;
  private static Warnings warning;
 
  private static WelcomeScreen welcomeScreen;
  private static LoginScreen loginScreen;
 
- static void books() {
-  book = new Books();
+ static void drivers() {
+  driver = new Driver();
  }
 
- static void visitors() {
-  visitor = new Visitors();
+ static void vehicles() {
+  vehicle = new Vehicle();
  }
 
- static void borrowers() {
-  borrower = new Borrowers();
+ static void blood_info() {
+  blood_info = new Blood_Info();
  }
 
  static void warnings() {

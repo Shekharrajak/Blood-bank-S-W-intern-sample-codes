@@ -75,21 +75,21 @@ public class Connections {
  }
 
  /**
-  * String [][] BooksView function that get all informations about any book
-  * and store it in two d array to show them in the table of the books
+  * String [][] DriverView function that get all informations about any driver
+  * and store it in two d array to show them in the table of the drivers
   * 
   * 
   * @return
   */
- public String[][] BooksView() {
+ public String[][] DriverView() {
   String[][] Result = new String[30][6];
   try {
 
    connectToDB();
    stmt = conn.createStatement();
-   // to view the book quary
+   // to view the driver quary
 
-   String sql = "SELECT Id,Name,Author,Eddition,ReleaseDate,publisher FROM books ";
+   String sql = "SELECT Id,Name,Author,Eddition,ReleaseDate,publisher FROM drivers ";
    ResultSet rs = stmt.executeQuery(sql);
    // Extract data from result set
    int j = 0;
@@ -117,7 +117,7 @@ public class Connections {
    } // while
 
    rs.close();
-   // to search by book id
+   // to search by driver id
 
   }// try
 
@@ -137,7 +137,7 @@ public class Connections {
  }
 
  /**
-  * void AddBook function is used to add new book information in the data
+  * void AddBook function is used to add new driver information in the data
   * base it takes the following parameters
   * 
   * @param Name
@@ -146,13 +146,13 @@ public class Connections {
   * @param ReleaseDate
   * @param Publisher
   */
- public void AddBook(String Name, String Author, String Eddition,
+ public void AddDriver(String Name, String Author, String Eddition,
    String ReleaseDate, String Publisher) {
 
   connectToDB();
   try {
    stmt = conn.createStatement();
-   String sql = "INSERT INTO books(name,author,eddition,releasedate,Publisher) "
+   String sql = "INSERT INTO drivers(name,author,eddition,releasedate,Publisher) "
      + "VALUES ( '"
      + Name
      + "', '"
@@ -194,12 +194,12 @@ public class Connections {
 
    connectToDB();
    stmt = conn.createStatement();
-   // to search by book name
+   // to search by driver name
    if (key == "Id" || key == "id" || key == "ID") {
     int ID = Integer.parseInt(value);
 
     // Extract data from result set
-    if (Screen.equalsIgnoreCase("books")) {
+    if (Screen.equalsIgnoreCase("drivers")) {
      String sql = "SELECT * FROM " + Screen + " WHERE id='" + ID
        + "' ";
      ResultSet rs = stmt.executeQuery(sql);
@@ -230,7 +230,7 @@ public class Connections {
      rs.close();
     }
 
-    else if (Screen.equalsIgnoreCase("Borrowers")) {
+    else if (Screen.equalsIgnoreCase("Blood_Info")) {
      String sql = "SELECT * FROM borrow WHERE id='" + ID + "' ";
      ResultSet rs = stmt.executeQuery(sql);
      int j = 0;
@@ -240,7 +240,7 @@ public class Connections {
       // Retrieve by column name
       int Id = rs.getInt("Id");
       String id = String.valueOf(Id);
-      int Book_Id = rs.getInt("bookId");
+      int Book_Id = rs.getInt("driverId");
       String B_ook_id = String.valueOf(Book_Id);
       String SNN = rs.getString("SNN");
       String Faculty = rs.getString("Faculty");
@@ -267,7 +267,7 @@ public class Connections {
 
      } // while
      rs.close();
-    } else if (Screen.equalsIgnoreCase("Visitors")) {
+    } else if (Screen.equalsIgnoreCase("Vehicle")) {
      String sql = "SELECT * FROM guest WHERE id='" + ID + "' ";
      ResultSet rs = stmt.executeQuery(sql);
      int j = 0;
@@ -296,9 +296,9 @@ public class Connections {
     }
 
    }// (if(1)
-    // to search by book id
+    // to search by driver id
    else if (key == "Name" || key == "name") {
-    if (Screen.equalsIgnoreCase("books")) {
+    if (Screen.equalsIgnoreCase("drivers")) {
      String sql = "SELECT * FROM " + Screen
        + " WHERE name LIKE'%" + value + "%' ";
      ResultSet rs = stmt.executeQuery(sql);
@@ -327,7 +327,7 @@ public class Connections {
 
      }
      rs.close();// while
-    } else if (Screen.equalsIgnoreCase("Borrowers")) {
+    } else if (Screen.equalsIgnoreCase("Blood_Info")) {
      String sql = "SELECT * FROM borrow WHERE Name LIKE'%"
        + value + "%' ";
      ResultSet rs = stmt.executeQuery(sql);
@@ -338,7 +338,7 @@ public class Connections {
       // Retrieve by column name
       int Id = rs.getInt("Id");
       String id = String.valueOf(Id);
-      int Book_Id = rs.getInt("bookId");
+      int Book_Id = rs.getInt("driverId");
       String B_ook_id = String.valueOf(Book_Id);
       String SNN = rs.getString("SNN");
       String Faculty = rs.getString("Faculty");
@@ -366,7 +366,7 @@ public class Connections {
      } // while
      rs.close();
 
-    } else if (Screen.equalsIgnoreCase("Visitors")) {
+    } else if (Screen.equalsIgnoreCase("Vehicle")) {
      String sql = "SELECT * FROM guest WHERE Name LIKE'%"
        + value + "%' ";
      ResultSet rs = stmt.executeQuery(sql);
@@ -434,7 +434,7 @@ public class Connections {
     stmt.executeUpdate(sql);
 
    }// (if(1)
-    // to search by book id
+    // to search by driver id
    else if (key == "Name" || key == "name") {
     String sql = "DELETE FROM " + Screen + " " + "WHERE name = '"
       + value + "'";
@@ -458,19 +458,19 @@ public class Connections {
  }
 
  /**
-  * * String [][] VisitorsView function that get all informations about any
+  * * String [][] VehicleView function that get all informations about any
   * visitor and store it in two d array to show them in the table of the
   * visitors
   * 
   * @return
   */
- public String[][] VisitorsView() {
+ public String[][] VehicleView() {
   String[][] result = new String[30][5];
   try {
 
    connectToDB();
    stmt = conn.createStatement();
-   // to view the book quary
+   // to view the driver quary
 
    String sql = "SELECT * FROM guest ";
    ResultSet rs = stmt.executeQuery(sql);
@@ -499,7 +499,7 @@ public class Connections {
    } // while
 
    rs.close();
-   // to search by book id
+   // to search by driver id
 
   }// try
 
@@ -521,7 +521,7 @@ public class Connections {
 
  /**
   * * String [][] Warnings function that get all informations about any
-  * borrower that don't return the book he borrowed and store it in two d
+  * borrower that don't return the driver he borrowed and store it in two d
   * array to show them in the table of the borrower it filters the borrower
   * table
   * 
@@ -533,7 +533,7 @@ public class Connections {
 
    connectToDB();
    stmt = conn.createStatement();
-   // to view the book quary
+   // to view the driver quary
 
    String sql = "SELECT* FROM borrow WHERE Date_of_Return<current_date() ";
    ResultSet rs = stmt.executeQuery(sql);
@@ -545,7 +545,7 @@ public class Connections {
     // Retrieve by column name
     int Id = rs.getInt("Id");
     String id = String.valueOf(Id);
-    int Book_Id = rs.getInt("bookId");
+    int Book_Id = rs.getInt("driverId");
     String B_ook_id = String.valueOf(Book_Id);
     String SNN = rs.getString("SNN");
     String Faculty = rs.getString("Faculty");
@@ -586,7 +586,7 @@ public class Connections {
    } // while
 
    rs.close();
-   // to search by book id
+   // to search by driver id
 
   }// try
 
@@ -618,7 +618,7 @@ public class Connections {
 
    connectToDB();
    stmt = conn.createStatement();
-   // to view the book quary
+   // to view the driver quary
 
    String sql = "SELECT* FROM borrow ";
    ResultSet rs = stmt.executeQuery(sql);
@@ -630,7 +630,7 @@ public class Connections {
     // Retrieve by column name
     int Id = rs.getInt("Id");
     String id = String.valueOf(Id);
-    int Book_Id = rs.getInt("bookId");
+    int Book_Id = rs.getInt("driverId");
     String B_ook_id = String.valueOf(Book_Id);
     String SNN = rs.getString("SNN");
     String Faculty = rs.getString("Faculty");
@@ -658,7 +658,7 @@ public class Connections {
    } // while
 
    rs.close();
-   // to search by book id
+   // to search by driver id
 
   }// try
 
@@ -678,7 +678,7 @@ public class Connections {
  }
 
  /**
-  * void Update it update the information of any book and it takes this
+  * void Update it update the information of any driver and it takes this
   * parameters
   * 
   * @param Id
@@ -694,7 +694,7 @@ public class Connections {
   connectToDB();
   try {
    stmt = conn.createStatement();
-   String sql = "update books set name = '" + Name + "', author = '"
+   String sql = "update drivers set name = '" + Name + "', author = '"
      + Author + "', eddition = '" + Eddition
      + "', ReleaseDate = '" + ReleaseDate + "', Publisher = '"
      + Publisher + "' where id = '" + Id + "'";
@@ -726,14 +726,14 @@ public class Connections {
   * @param Adress
   * @param E_mail
   */
- public void AddBorrower(String BookId, String Name, String SNN,
+ public void AddBlood_Info(String BookId, String Name, String SNN,
    String BorrowDate, String Date_of_Return, String Phone,
    String Adress, String E_mail) {
 
   connectToDB();
   try {
    stmt = conn.createStatement();
-   String sql = "INSERT INTO borrow(bookId,Name,SNN,Date_of_Borrow,Date_of_Return,Phone,Adress,Email) "
+   String sql = "INSERT INTO borrow(driverId,Name,SNN,Date_of_Borrow,Date_of_Return,Phone,Adress,Email) "
      + "VALUES ( '"
      + BookId
      + "', '"
@@ -771,7 +771,7 @@ public class Connections {
   * @param Faculty
   * @param Class
   */
- public void Addvisitor(String Name, String SNN, String Faculty, String Class) {
+ public void Addvehicle(String Name, String SNN, String Faculty, String Class) {
 
   connectToDB();
   try {

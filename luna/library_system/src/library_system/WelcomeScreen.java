@@ -21,7 +21,7 @@ public class WelcomeScreen extends JFrame {
 	 */
 	//private static final long serialVersionUID = 1L;
 private JLabel lblWelcome;
- private JButton btnBooks, btnBorrowers, btnVisitors, btnWarnings, btnExit,
+ private JButton btnDriver, btnBlood_Info, btnVehicle, btnWarnings, btnExit,
    btnLogout;
  private JLabel lblFor, lblForInsertingModifying,
    lblForInsertingModifying_1, lblForInsertingModifying_2;
@@ -54,14 +54,14 @@ private JLabel lblWelcome;
   lblWelcome = new JLabel("Welcome " + userName);
   lblWelcome.setBounds(10, 11, 200, 20);
 
-  btnBooks = new JButton("Books");
-  btnBooks.setBounds(345, 95, 89, 23);
+  btnDriver = new JButton("Driver");
+  btnDriver.setBounds(345, 95, 89, 23);
 
-  btnBorrowers = new JButton("Borrowers");
-  btnBorrowers.setBounds(345, 145, 89, 23);
+  btnBlood_Info = new JButton("Blood_Info");
+  btnBlood_Info.setBounds(345, 145, 189, 23);
 
-  btnVisitors = new JButton("Visitors");
-  btnVisitors.setBounds(345, 206, 89, 23);
+  btnVehicle = new JButton("Vehicle");
+  btnVehicle.setBounds(345, 206, 89, 23);
 
   btnWarnings = new JButton("Warnings");
   btnWarnings.setBounds(345, 269, 89, 23);
@@ -73,15 +73,15 @@ private JLabel lblWelcome;
   btnLogout.setBounds(527, 10, 89, 23);
 
   lblFor = new JLabel(
-    "For Inserting, Modifying, Retrieving, Books Data: ");
+    "For Inserting, Modifying, Retrieving, Driver Data: ");
   lblFor.setBounds(10, 99, 300, 14);
 
   lblForInsertingModifying = new JLabel(
-    "For Inserting, Modifying, Retrieving, Borrowers Data: ");
+    "For Inserting, Modifying, Retrieving, Blood_Info Data: ");
   lblForInsertingModifying.setBounds(10, 149, 300, 14);
 
   lblForInsertingModifying_1 = new JLabel(
-    "For Inserting, Modifying, Retrieving, Visitors Data: ");
+    "For Inserting, Modifying, Retrieving, Vehicle Data: ");
   lblForInsertingModifying_1.setBounds(10, 210, 300, 14);
 
   lblForInsertingModifying_2 = new JLabel(
@@ -92,9 +92,9 @@ private JLabel lblWelcome;
 
  private void Add() {
   contentPane.add(lblWelcome);
-  contentPane.add(btnBooks);
-  contentPane.add(btnBorrowers);
-  contentPane.add(btnVisitors);
+  contentPane.add(btnDriver);
+  contentPane.add(btnBlood_Info);
+  contentPane.add(btnVehicle);
   contentPane.add(btnWarnings);
   contentPane.add(btnExit);
   contentPane.add(btnLogout);
@@ -106,34 +106,34 @@ private JLabel lblWelcome;
  }
 
  private void Action() {
-  btnBooks.addActionListener(new ActionListener() {
+  btnDriver.addActionListener(new ActionListener() {
 
    @Override
    public void actionPerformed(ActionEvent arg0) {
 
     dispose();
-    Class.books();
+    Class.drivers();
    }
   });
 
-  btnVisitors.addActionListener(new ActionListener() {
+  btnVehicle.addActionListener(new ActionListener() {
 
    @Override
    public void actionPerformed(ActionEvent arg0) {
 
     dispose();
-    Class.visitors();
+    Class.vehicles();
 
    }
   });
 
-  btnBorrowers.addActionListener(new ActionListener() {
+  btnBlood_Info.addActionListener(new ActionListener() {
 
    @Override
    public void actionPerformed(ActionEvent arg0) {
 
     dispose();
-    Class.borrowers();
+    Class.blood_info();
 
    }
   });

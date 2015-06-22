@@ -126,20 +126,20 @@ btnNewButton.addMouseListener(new MouseAdapter() {
   if (rdbtnNewRadioButton.isSelected())
 
   {
-   if (screen.equalsIgnoreCase("books")) {
-    conn.Delete("id", textField.getText(), "books");
-   } else if (screen.equalsIgnoreCase("Borrowers")) {
+   if (screen.equalsIgnoreCase("drivers")) {
+    conn.Delete("id", textField.getText(), "drivers");
+   } else if (screen.equalsIgnoreCase("Blood_Info")) {
     conn.Delete("id", textField.getText(), "borrow");
-   } else if (screen.equalsIgnoreCase("Visitors")) {
+   } else if (screen.equalsIgnoreCase("Vehicle")) {
     conn.Delete("id", textField.getText(), "guest");
    }
 
   } else if (rdbtnNewRadioButton_1.isSelected()) {
-   if (screen.equalsIgnoreCase("books")) {
-    conn.Delete("Name", textField_1.getText(), "books");
-   } else if (screen.equalsIgnoreCase("Borrowers")) {
+   if (screen.equalsIgnoreCase("drivers")) {
+    conn.Delete("Name", textField_1.getText(), "drivers");
+   } else if (screen.equalsIgnoreCase("Blood_Info")) {
     conn.Delete("Name", textField_1.getText(), "borrow");
-   } else if (screen.equalsIgnoreCase("Visitors")) {
+   } else if (screen.equalsIgnoreCase("Vehicle")) {
     conn.Delete("Name", textField_1.getText(), "guest");
    }
 
