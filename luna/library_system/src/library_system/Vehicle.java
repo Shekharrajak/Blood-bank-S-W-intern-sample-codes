@@ -2,9 +2,7 @@ package library_system;
 /**
  * Vehicle.java 
  * 
- * A child of @Screen that handles the vehicles of the system. Can add, edit, view, delete vehicles of the system,
  * 
- * @author Mohamed Habib
  */
 
 
@@ -17,8 +15,8 @@ public class Vehicle extends Screen {
    * and combo box
    */
 
-  super("Vehicle", new String[] { "ID:", "Name:", "SNN:", "Faculty:",
-    "Class:" }, 5);
+  super("Vehicle", new String[] { "Vehicle ID:", "Vehicle Model Name:", "Vehicle No:", "Driver ID:",
+    "Vehicle Divisio :" }, 5);
 
   for (int i = 0; i < textFields.length; i++) {
 

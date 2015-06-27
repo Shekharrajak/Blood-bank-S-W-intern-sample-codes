@@ -1,13 +1,6 @@
 package library_system;
 
-/**
- * Blood_Info.java 
- * @author Mohamed Habib
- * 
- * A child of @Screen that handles the borrowers of the system. Can add, edit, view, delete borrowers of the system,
- * 
- * 
- */
+
 
 
 public class Blood_Info extends Screen {

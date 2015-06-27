@@ -1,17 +1,5 @@
 package library_system;
-/**
- * main.java
- * OOP Project FCIS second year second semester
- * 
- * fcis Package
- *
- * Purpose: A Library management system that handles the library books, borrowers, vehicles, warnings . 
- * 
- * this class has the main method, makes an object from another class that passes us from a screen to screen using buttons
- *
- * @author Mohamed Habib
- * @version 1.0 5/2013
- */
+
 
 
 import java.awt.EventQueue;

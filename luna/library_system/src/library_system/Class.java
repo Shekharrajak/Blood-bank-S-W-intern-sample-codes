@@ -1,12 +1,5 @@
 package library_system;
-/**
- * Class.java
- * @author Mohamed Habib
- * contains method that calls a screen  
- * 
- * 
- * 
- */
+
 
 import javax.swing.JOptionPane;
 

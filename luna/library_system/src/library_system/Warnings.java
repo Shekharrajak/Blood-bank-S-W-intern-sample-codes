@@ -1,9 +1,7 @@
 package library_system;
 
 /**
- * Warnings.java 
- * 
- * A child of @Screen that handles the warnings of the system. has only the table of the warning
+ 
  * 
  * 
  */

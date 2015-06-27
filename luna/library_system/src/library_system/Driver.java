@@ -1,12 +1,5 @@
 package library_system;
-/**
- * Driver.java 
- * @author Mohamed Habib
- * 
- * A child of @Screen that handles the books of the system. Can add, edit, view, delete books of the system,
- * 
- * 
- */
+
 
 
 public class Driver extends Screen {

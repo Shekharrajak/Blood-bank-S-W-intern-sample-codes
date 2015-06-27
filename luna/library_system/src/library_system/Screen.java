@@ -1,9 +1,4 @@
 package library_system;
-/**
- * Screen.java
- * this class is used as a parent to make 4 child Classes from it, 
- * @author Mohamed Habib
- */
 
 
 
@@ -201,7 +196,7 @@ public abstract class Screen extends JFrame {
     JOptionPane
       .showMessageDialog(
         null,
-        " This Project Was Created By\nMohamed Habib\nMahmoud Omara\nMahmoud Numan\nMostafa Zaghlol ");
+        " This Project info here. SPR ");
    }
   });
 

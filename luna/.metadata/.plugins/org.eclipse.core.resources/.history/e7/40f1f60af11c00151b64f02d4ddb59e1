@@ -1,0 +1,27 @@
+package Blood_bank_vehicle_module;
+
+
+
+import java.awt.EventQueue;
+
+public class main {
+
+ public static void main(String[] args) {
+  System.out.println();
+  EventQueue.invokeLater(new Runnable() {
+   public void run() {
+    try {
+     // SearchResults sr=new SearchResults("id","1","books");
+     LoginScreen loginScreen = new LoginScreen();
+
+     // WelcomeScreen w = new WelcomeScreen();
+
+    } catch (Exception e) {
+     e.printStackTrace();
+    }
+   }
+  });
+
+ }
+
+}
