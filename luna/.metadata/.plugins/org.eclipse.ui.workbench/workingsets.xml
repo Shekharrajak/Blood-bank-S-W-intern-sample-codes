@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1435737444784_5" label="Intern" name="Intern"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1434694372227_0" label="Window Working Set" name="Aggregate for window 1434694372227"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1434825079921_1" label="Window Working Set" name="Aggregate for window 1434825079921"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1435068535887_2" label="Window Working Set" name="Aggregate for window 1435068535887"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1435423326671_3" label="Window Working Set" name="Aggregate for window 1435423326671"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1435732960265_4" label="Window Working Set" name="Aggregate for window 1435732960265"/>
 </workingSetManager>
